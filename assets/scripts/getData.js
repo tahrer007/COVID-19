@@ -70,6 +70,7 @@ export const getCountryCovidData = async (
 
     if (isCountrySellected) {
       sellectedCountry = fillCountryCovidData(countryData);
+       return sellectedCountry
     } else {
       calculateContinentCovidData(countryData.data.latest_data, continent);
     }
@@ -109,6 +110,8 @@ export const getCountriesByContinent = async (continent) => {
     
   } catch (err) {
     console.log(err);
+
+    
   }
   
 };
@@ -119,20 +122,17 @@ export const searchCountry = async (country) => {
     const CountriesByContinentURL = `https://intense-mesa-62220.herokuapp.com/https://restcountries.com/v3.1/name/${country}`;
     const response = await fetch(CountriesByContinentURL);
     const countryData = await response.json();
-
-    //console.log(countryData[0]);
-    getCountryCovidData(countryData[0].cca2, true, countryData[0].region);
+    return getCountryCovidData(countryData[0].cca2, true, countryData[0].region);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${countryData.status}`);
     }
   } catch (err) {
-    console.log(err);
+    console.error("not found");
+   
   }
+ 
 };
 //----------call the functions --------------
-//GlobalData();
 //TODO : get data for all containent
-//getCountryCovidData("SA",true,"Asia")
-//console.log(ContinentsData);
-//searchCountry("France")
+

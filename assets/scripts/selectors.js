@@ -1,0 +1,10 @@
+export const status = document.querySelector(".status");
+export const europe = document.querySelector(".europe");
+export const asia = document.querySelector(".asia");
+export const africa = document.querySelector(".africa");
+export const americas = document.querySelector(".americas");
+export const oceania = document.querySelector(".oceania");
+export const dropdownContent = document.querySelector(".dropdownContent");
+export const ContinentsbtnsBox = document.querySelector(".ContinentsbtnsBox");
+export const searchBtn = document.querySelector(".searchBtn");
+export const searchText = document.querySelector(".searchText");
