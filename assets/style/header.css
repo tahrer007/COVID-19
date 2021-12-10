@@ -1,9 +1,19 @@
 header {
   width: 100%;
-  height: 5vw;
+  height: fit-content;
   background: #7c3238;
   position: relative;
 }
+.logo{
+    height: 100%;
+    width:300px;
+    float:left;
+    
+}
+iframe{
+    background-color:#7c3238 ;
+}
+
 .searchBox {
   position: absolute;
   top: 50%;

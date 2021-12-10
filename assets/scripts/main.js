@@ -9,6 +9,11 @@ const filldropdownContent = (countriesArr) => {
     initialListItem.classList.add("countryInTheList");
     initialListItem.setAttribute("id", element.code);
     initialListItem.innerText = element.name;
+    initialListItem.addEventListener("click",function(){
+        data.getCountryCovidData(element.code,true,"").then(function (value) {
+            console.log(value);
+          });
+    })
     selectors.dropdownContent.appendChild(initialListItem);
   });
 };
