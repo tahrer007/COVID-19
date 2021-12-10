@@ -1,6 +1,7 @@
 header {
   width: 100%;
-  height: fit-content;
+
+  height: 200px;
   background: #7c3238;
   position: relative;
 }
@@ -10,9 +11,7 @@ header {
     float:left;
     
 }
-iframe{
-    background-color:#7c3238 ;
-}
+
 
 .searchBox {
   position: absolute;

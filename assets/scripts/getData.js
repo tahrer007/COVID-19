@@ -55,6 +55,7 @@ export const calculateContinentCovidData = (countryCovidData, continent) => {
   ContinentsData[continent].confirmed += countryCovidData.confirmed;
   ContinentsData[continent].deaths += countryCovidData.deaths;
   ContinentsData[continent].recovered += countryCovidData.recovered;
+  return countryCovidData.confirmed;
 };
 //------------------------- getCountryCovidData -------------------
 export const getCountryCovidData = async (
@@ -72,7 +73,7 @@ export const getCountryCovidData = async (
       sellectedCountry = fillCountryCovidData(countryData);
        return sellectedCountry
     } else {
-      calculateContinentCovidData(countryData.data.latest_data, continent);
+      return calculateContinentCovidData(countryData.data.latest_data, continent);
     }
 
     if (!response.ok) {
@@ -90,7 +91,7 @@ export const fillcountriesData = (countriesData, continent) => {
     let eachcountry = {};
     eachcountry.name = element.name.common;
     eachcountry.code = element.cca2;
-    getCountryCovidData(eachcountry.code, false, continent);
+    eachcountry.confirmed = getCountryCovidData(eachcountry.code, false, continent);
     countries.push(eachcountry);
   });
   return countries;

@@ -25,8 +25,8 @@ const createContinentsButtons = (worldsContinents) => {
     initialBtn.innerText = element;
     initialBtn.addEventListener("click", function () {
       data.getCountriesByContinent(element).then(function (value) {
-        //console.log(value[0]);
       filldropdownContent(value[0]);
+      //console.log(data.ContinentsData)
       });
     });
     selectors.ContinentsbtnsBox.appendChild(initialBtn);
