@@ -9,6 +9,7 @@ worldsContinents.forEach((element) => {
     recovered: 0,
   };
 });
+let sellectedCountry = {};
 console.log(ContinentsData);
 
 //-----------get global data from API ----------------
@@ -24,8 +25,28 @@ const GlobalData = async () => {
   }
   document.body.innerHTML = "DONE";
 };
-//----------------------fill country covid data / calculate content sum (death/comfirmed case / recovered)
+
 //countryObj={code,name,confirmed,critical,deaths,recovered,calculations{deathrate,recoveryRate},casesPerMillion}
+const fillCountryCovidData = (countryData) => {
+  let CountryObj = {};
+  let CountryCalcObj = {};
+  CountryObj.code = countryData.data.code;
+  CountryObj.name = countryData.data.name;
+  CountryObj.confirmed = countryData.data.latest_data.confirmed;
+  CountryObj.critical = countryData.data.latest_data.critical;
+  CountryObj.deaths = countryData.data.latest_data.deaths;
+  CountryObj.recovered = countryData.data.latest_data.recovered;
+  //get callculated data
+  CountryCalcObj.deathRate = countryData.data.latest_data.calculated.death_rate;
+  CountryCalcObj.recoveryRate =
+    countryData.data.latest_data.calculated.recovery_rate;
+  CountryCalcObj.casesPerMillion =
+    countryData.data.latest_data.calculated.cases_per_million_population;
+  CountryObj.calcuations = CountryCalcObj;
+
+  return CountryObj;
+};
+//---------------------- calculate content sum (death/comfirmed case / recovered)
 
 const calculateContinentCovidData = (countryCovidData, continent) => {
   ContinentsData[continent].confirmed += countryCovidData.confirmed;
@@ -45,8 +66,13 @@ const getCountryCovidData = async (
     const countryData = await response.json();
     //console.log(countryData.data.latest_data);
 
-    if (!isCountrySellected)
+    if (isCountrySellected) {
+      sellectedCountry = fillCountryCovidData(countryData);
+    } else {
       calculateContinentCovidData(countryData.data.latest_data, continent);
+    }
+    console.log(sellectedCountry);
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${countryData.status}`);
     }
@@ -86,9 +112,30 @@ const getCountriesByContinent = async (continent) => {
   }
   document.body.innerHTML = "DONE";
 };
+//------------------ search Country manually -----------------------
 
+const searchCountry = async (country) => {
+  try {
+    const CountriesByContinentURL = `https://intense-mesa-62220.herokuapp.com/https://restcountries.com/v3.1/name/${country}`;
+    document.body.innerHTML = "LOADDING ......⏰⏰⏰⌚";
+    const response = await fetch(CountriesByContinentURL);
+    const countryData = await response.json();
+    
+    //console.log(countryData[0]);
+    getCountryCovidData(countryData[0].cca2,true,countryData[0].region);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${countryData.status}`);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  document.body.innerHTML = "DONE";
+};
 //----------call the functions --------------
 //GlobalData();
 //getCountriesByContinent("Asia");
-//TODO : get data for all containent 
-console.log(ContinentsData);
+//TODO : get data for all containent
+//getCountryCovidData("SA",true,"Asia")
+//console.log(ContinentsData);
+searchCountry("France")
