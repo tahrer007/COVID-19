@@ -6,6 +6,7 @@ const africa = document.querySelector(".africa");
 const americas = document.querySelector(".americas");
 const oceania = document.querySelector(".oceania");
 const dropdownContent = document.querySelector(".dropdownContent");
+const ContinentsbtnsBox = document.querySelector(".ContinentsbtnsBox");
 
 import {worldsContinents,ContinentsData,globalData,sellectedCountry,GlobalData,fillCountryCovidData,
     calculateContinentCovidData,getCountryCovidData,fillcountriesData,getCountriesByContinent,searchCountry,
@@ -22,18 +23,29 @@ const filldropdownContent= (countriesArr)=>{
     });
    
 }
-europe.addEventListener("click",function (){
-    console.log("Europe");
+const createContinentsButtons=(worldsContinents)=>{
 
-    getCountriesByContinent("Europe").then(
-        function(value) {
-            console.log(value[0]);
-            filldropdownContent(value[0]);
-        }
-      );
-     
+    worldsContinents.forEach(element => {
+        let initialBtn= document.createElement("button");
+        initialBtn.classList.add("Continentbtn");
+        initialBtn.setAttribute("id",element)
+        initialBtn.innerText= element ;
+        initialBtn.addEventListener("click",function(){
+            getCountriesByContinent(element).then(
+                function(value) {
+                    //console.log(value[0]);
+                    filldropdownContent(value[0]);
+                }
+              );
+
+        })
+        ContinentsbtnsBox.appendChild(initialBtn);  
+        
+    });
     
-})
+}
+createContinentsButtons(worldsContinents);
+
 
 
 
