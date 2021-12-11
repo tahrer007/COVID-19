@@ -13,50 +13,66 @@
     <link rel="stylesheet" href="/assets/style/dropdown.css" />
     <link rel="stylesheet" href="/assets/style/main-body.css" />
     <link rel="stylesheet" href="/assets/style/chart.css" />
+    <link rel="stylesheet" href="/assets/style/font.css" />
 
     <title>COVID 19</title>
   </head>
   <body>
     <div class="pageContainer">
-        <!--------------------header---------------------->
-        <header>
-            <div class="logo">logo</div>
-            <div class="searchBoxContainer">
-            <div class="searchBox">
-                <input
-                class="searchText"
-                type="text"
-                placeholder="Search a country"
-                />
-                <a href="#" class="searchBtn">
-                <i class="fas fa-search"></i>
-                </a>
-            </div>
-            </div>
-        </header>
-        <!----------------body ---------------------------------->
-        <!-----buttons Box :  Continent , select country -------->
-        <div class="btnsbox">
-                <div class="ContinentsbtnsBox"></div>
-
-                <div class="dropdownBox">
-                <ul>
-                    <li class="dropdown">
-                    <a href="#" class="dropbtn"> countries list</a>
-                    <div class="dropdownContent">
-                        <a href="#" class="countryInTheList">select a continent</a>
-                    </div>
-                    </li>
-                </ul>
-                </div>
+      <!--------------------header---------------------->
+      <header>
+        <div class="logo">logo</div>
+        <div class="searchBoxContainer">
+          <div class="searchBox">
+            <input
+              class="searchText"
+              type="text"
+              placeholder="Search a country"
+            />
+            <a href="#" class="searchBtn">
+              <i class="fas fa-search"></i>
+            </a>
+          </div>
         </div>
+      </header>
+      <!----------------body ---------------------------------->
+      <!-----buttons Box :  Continent , select country -------->
+      <div class="btnsbox">
+        <div class="ContinentsbtnsBox"></div>
+
+        <div class="dropdownBox">
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropbtn"> countries list</a>
+              <div class="dropdownContent">
+                <a href="#" class="countryInTheList">select a continent</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!-----main body : charts , statistics -------->
       <div class="mainBody">
-        <div class="globalBox bodyleftBox"></div>
-        <div class="statistics bodyleftBox"></div>
+        <div class="globalBox bodyLeftBox">
+          <!--TODO: ADD covid ICON & EARCH ICON-->
+          <div class="title">
+            <h2>up to date COVID-19 Global data</h2>
+          </div>
+
+          <div class="globalStatusBox"></div>
+        </div>
+        <div class="statistics bodyRightBox">
+          <div class="title">
+            <h2>latest COVID-19 updates</h2>
+          </div>
+          <iframe  src="https://www.youtube.com/embed/Kb7nCsn6_mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/NMre6IAAAiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
-      
+      <!-----footer -------->
+      <footer></footer>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="assets/scripts/selectors.js"></script>
     <script type="module" src="assets/scripts/main.js"></script>

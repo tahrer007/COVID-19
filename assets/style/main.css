@@ -7,6 +7,11 @@ body{
     
    
 }
+*{
+    font-family: 'Fredoka One', cursive;
+}
+
+
 .pageContainer{
     height: 100%;
     width: 100%;
@@ -17,6 +22,16 @@ body{
   flex-direction: column;
   
 }
+/*----------------main page containers---------------------------*/
+header {
+    width: 100%;
+    height: 7%; 
+    background: #7c3238;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
 .btnsbox{
     width:100%;
     height: 7%;
@@ -24,6 +39,22 @@ body{
     display: flex;
     justify-content: space-between;
 }
+.mainBody{
+    width:100%;
+    height: 79%;
+    background-color: green;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer{
+    width:100%;
+    height: 7%;
+    background-color: blue;
+}
+
+
+/**------------- button box ----------------------*/
 .ContinentsbtnsBox{
     height: 100%;
     width:60%; 
