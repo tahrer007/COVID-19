@@ -24,6 +24,7 @@ export const GlobalData = async () => {
       "https://intense-mesa-62220.herokuapp.com/https://corona-api.com/timeline";
     const data = await (await fetch(timeLIneURL)).json();
     globalData = data.data[0];
+    console.log(globalData);
   } catch (err) {
     console.log(err);
   }
@@ -67,15 +68,18 @@ export const getCountryCovidData = async (
     const countryDataURL = `https://intense-mesa-62220.herokuapp.com/https://corona-api.com/countries/${CountryCode}`;
     const response = await fetch(countryDataURL);
     const countryData = await response.json();
+    console.log(countryData);
     //console.log(countryData.data.latest_data);
 
     if (isCountrySellected) {
       sellectedCountry = fillCountryCovidData(countryData);
-       return sellectedCountry
+      return sellectedCountry;
     } else {
-      return calculateContinentCovidData(countryData.data.latest_data, continent);
+      return calculateContinentCovidData(
+        countryData.data.latest_data,
+        continent
+      );
     }
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${countryData.status}`);
     }
@@ -86,12 +90,15 @@ export const getCountryCovidData = async (
 //----------------------------------------
 export const fillcountriesData = (countriesData, continent) => {
   let countries = [];
-
   countriesData.forEach((element) => {
     let eachcountry = {};
     eachcountry.name = element.name.common;
     eachcountry.code = element.cca2;
-    eachcountry.confirmed = getCountryCovidData(eachcountry.code, false, continent);
+    eachcountry.confirmed = getCountryCovidData(
+      eachcountry.code,
+      false,
+      continent
+    );
     countries.push(eachcountry);
   });
   return countries;
@@ -107,14 +114,10 @@ export const getCountriesByContinent = async (continent) => {
     }
     let tempArr = fillcountriesData(countriesData, continent);
     ContinentsData[continent].countriesArr.push(tempArr);
-    return ContinentsData[continent].countriesArr ; 
-    
+    return ContinentsData[continent].countriesArr;
   } catch (err) {
     console.log(err);
-
-    
   }
-  
 };
 //------------------ search Country manually -----------------------
 
@@ -123,17 +126,20 @@ export const searchCountry = async (country) => {
     const CountriesByContinentURL = `https://intense-mesa-62220.herokuapp.com/https://restcountries.com/v3.1/name/${country}`;
     const response = await fetch(CountriesByContinentURL);
     const countryData = await response.json();
-    return getCountryCovidData(countryData[0].cca2, true, countryData[0].region);
+    return getCountryCovidData(
+      countryData[0].cca2,
+      true,
+      countryData[0].region
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${countryData.status}`);
     }
   } catch (err) {
     console.error("not found");
-   
   }
- 
 };
 //----------call the functions --------------
 //TODO : get data for all containent
-
+//GlobalData()
+getCountryCovidData("FR", true, "");

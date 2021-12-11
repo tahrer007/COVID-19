@@ -1,37 +1,49 @@
 header {
   width: 100%;
-
-  height: 200px;
+  height: 7%; 
   background: #7c3238;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+ 
+ 
+ 
+}
+.logo {
+  height: 100%;
+  width: 5%;
+  background-color:blue ;
+  
+}
+/*TODO:FIX search bar size bug*/
+.searchBoxContainer{
+  height: 100%;
+  width:60%;
   position: relative;
+  
 }
-.logo{
-    height: 100%;
-    width:300px;
-    float:left;
-    
-}
-
-
 .searchBox {
   position: absolute;
-  top: 50%;
+  top : 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #2f3640;
   height: 40px;
   border-radius: 40px;
   padding: 10px;
+  
 }
 
-.searchBox:hover > .searchText {
+.searchBox:hover > .searchText{
   width: 240px;
   padding: 0 6px;
 }
 
-.searchBox:hover > .searchBtn {
+.searchBox:hover > .searchBtn{
   background: white;
   color: black;
+  
 }
 
 .searchBtn {
@@ -47,6 +59,7 @@ header {
   transition: 0.4s;
   cursor: pointer;
   text-decoration: none;
+  
 }
 .searchBtn > i {
   font-size: 30px;
@@ -59,9 +72,12 @@ header {
   float: left;
   padding: 0;
   color: white;
-  font-size: 30px;
+  font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 40px;
   width: 0px;
+  
+/*   width: 250px; */
+ 
 }

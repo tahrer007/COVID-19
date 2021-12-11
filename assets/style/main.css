@@ -1,10 +1,42 @@
 body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    
+   
+}
+.pageContainer{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+  flex-direction: column;
+  
+}
+.btnsbox{
+    width:100%;
+    height: 7%;
+    background-color: tomato;
+    display: flex;
+    justify-content: space-between;
+}
+.ContinentsbtnsBox{
+    height: 100%;
+    width:60%; 
+    display: flex;
+    justify-content: space-evenly;
+    background-color: yellowgreen;
 }
 
 .Continentbtn{
-    height: 200px ; 
-    width: 20%;
-    font-size: 50px;
+    height:100% ; 
+    width: 19%;
+    font-size: 2.5em;
+    border-radius:30% ;
+    border: 3px blue solid;
+   
 }

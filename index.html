@@ -11,37 +11,53 @@
     <link rel="stylesheet" href="/assets/style/main.css" />
     <link rel="stylesheet" href="/assets/style/header.css" />
     <link rel="stylesheet" href="/assets/style/dropdown.css" />
+    <link rel="stylesheet" href="/assets/style/main-body.css" />
     <link rel="stylesheet" href="/assets/style/chart.css" />
 
     <title>COVID 19</title>
   </head>
   <body>
-    <header>
-        <div class="logo">
-           logo
+    <div class="pageContainer">
+        <!--------------------header---------------------->
+        <header>
+            <div class="logo">logo</div>
+            <div class="searchBoxContainer">
+            <div class="searchBox">
+                <input
+                class="searchText"
+                type="text"
+                placeholder="Search a country"
+                />
+                <a href="#" class="searchBtn">
+                <i class="fas fa-search"></i>
+                </a>
+            </div>
+            </div>
+        </header>
+        <!----------------body ---------------------------------->
+        <!-----buttons Box :  Continent , select country -------->
+        <div class="btnsbox">
+                <div class="ContinentsbtnsBox"></div>
+
+                <div class="dropdownBox">
+                <ul>
+                    <li class="dropdown">
+                    <a href="#" class="dropbtn"> countries list</a>
+                    <div class="dropdownContent">
+                        <a href="#" class="countryInTheList">select a continent</a>
+                    </div>
+                    </li>
+                </ul>
+                </div>
         </div>
-      <div class="searchBox">
-        <input class="searchText" type="text" placeholder="Search Anything" />
-        <a href="#" class="searchBtn">
-          <i class="fas fa-search"></i>
-        </a>
+      <!-----main body : charts , statistics -------->
+      <div class="mainBody">
+        <div class="globalBox bodyleftBox"></div>
+        <div class="statistics bodyleftBox"></div>
       </div>
-    </header>
-
-    <div class="ContinentsbtnsBox"></div>
-
-    <div class="dropdownBox">
-      <ul>
-        <li class="dropdown">
-          <a href="#" class="dropbtn"> countries list</a>
-          <div class="dropdownContent">
-            <a href="#" class="countryInTheList">select a continent</a>
-          </div>
-        </li>
-      </ul>
+      
     </div>
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="assets/scripts/selectors.js"></script>
     <script type="module" src="assets/scripts/main.js"></script>
     <script type="module" src="assets/scripts/getData.js"></script>
