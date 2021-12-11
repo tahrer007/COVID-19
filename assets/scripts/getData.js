@@ -56,20 +56,20 @@ export const getGlobalData = async () => {
 //countryObj={code,name,confirmed,critical,deaths,recovered,calculations{deathrate,recoveryRate},casesPerMillion}
 export const fillCountryCovidData = (countryData) => {
   let CountryObj = {};
-  let CountryCalcObj = {};
+
   CountryObj.code = countryData.data.code;
   CountryObj.name = countryData.data.name;
   CountryObj.confirmed = countryData.data.latest_data.confirmed;
-  CountryObj.critical = countryData.data.latest_data.critical;
+  //CountryObj.critical = countryData.data.latest_data.critical;
   CountryObj.deaths = countryData.data.latest_data.deaths;
   CountryObj.recovered = countryData.data.latest_data.recovered;
   //get callculated data
-  CountryCalcObj.deathRate = countryData.data.latest_data.calculated.death_rate;
-  CountryCalcObj["recovery Rate"] =
-    countryData.data.latest_data.calculated.recovery_rate;
-  CountryCalcObj["cases/Million"] =
+  CountryObj["death Rate"] = countryData.data.latest_data.calculated.death_rate.toFixed();
+  CountryObj["recovery Rate"] =
+    countryData.data.latest_data.calculated.recovery_rate.toFixed(2);
+    CountryObj["cases/Million"] =
     countryData.data.latest_data.calculated.cases_per_million_population;
-  CountryObj.calcuations = CountryCalcObj;
+  
 
   return CountryObj;
 };

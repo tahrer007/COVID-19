@@ -9,3 +9,6 @@ export const ContinentsbtnsBox = document.querySelector(".ContinentsbtnsBox");
 export const searchBtn = document.querySelector(".searchBtn");
 export const searchText = document.querySelector(".searchText");
 export const globalStatusBox = document.querySelector(".globalStatusBox");
+export const title = document.querySelector(".title");
+export const countryDataBox = document.querySelector(".countryDataBox");
+export const countryDataItem = document.querySelector(".countryDataItem");

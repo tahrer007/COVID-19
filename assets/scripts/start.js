@@ -2,7 +2,17 @@
 import * as selectors from "./selectors.js";
 import * as data from "./getData.js";
 import * as regionChart from "./regionChart.js";
-const fillCountryStatistcs = ()=>{
+const fillCountryStatistcs = (countryData)=>{
+  console.log("tttttt")
+  console.log(countryData)
+  for (const key in countryData) {
+    if(key==="name"||key==="code")continue ; 
+    let initialListItem = document.createElement("div");
+    initialListItem.classList.add("countryDataItem");
+    initialListItem.innerHTML = `${key} : ${countryData[key]}`;
+    selectors.countryDataBox.appendChild(initialListItem);
+  }
+  selectors.title.innerHTML = countryData.name  ; 
   
 }
 const filldropdownContent = (countriesArr) => {
@@ -15,6 +25,7 @@ const filldropdownContent = (countriesArr) => {
     initialListItem.addEventListener("click", function () {
       data.getCountryCovidData(element.code, true, "").then(function (value) {
         console.log(value);
+        fillCountryStatistcs(value);
       });
     });
     selectors.dropdownContent.appendChild(initialListItem);
