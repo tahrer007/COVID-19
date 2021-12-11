@@ -2,7 +2,9 @@
    
 }
 
-
-
 .statistics {
+}
+.countryData{
+    display: flex;
+    flex-direction: column;
 }

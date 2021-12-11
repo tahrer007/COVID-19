@@ -65,9 +65,9 @@ export const fillCountryCovidData = (countryData) => {
   CountryObj.recovered = countryData.data.latest_data.recovered;
   //get callculated data
   CountryCalcObj.deathRate = countryData.data.latest_data.calculated.death_rate;
-  CountryCalcObj.recoveryRate =
+  CountryCalcObj["recovery Rate"] =
     countryData.data.latest_data.calculated.recovery_rate;
-  CountryCalcObj.casesPerMillion =
+  CountryCalcObj["cases/Million"] =
     countryData.data.latest_data.calculated.cases_per_million_population;
   CountryObj.calcuations = CountryCalcObj;
 
