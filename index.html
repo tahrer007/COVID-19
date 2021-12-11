@@ -25,6 +25,7 @@
       <header>
         <div class="logo">logo</div>
         <div class="searchBoxContainer">
+          <!--TODO: SEARCH BUTTON BUG IN MOBILE AND TABLETS SCREENS -->
           <div class="searchBox">
             <input
               class="searchText"
@@ -55,16 +56,26 @@
       </div>
       <!-----main body : charts , statistics -------->
       <div class="mainBody">
+        <!--left side : charts and main data -->
         <div class="bodyLeftBox" id="globalBox">
-          <!--TODO: ADD covid ICON & EARCH ICON-->
           <div class="chartBox">
             <canvas
-              id="myChart"
+              id="globalChart"
               style="max-width: 100%; height: 100%; margin: 0 auto"
             ></canvas>
+            <canvas
+              id="regionChart"
+              style="max-width: 100%; height: 100%; margin: 0 auto"
+            ></canvas>
+            
           </div>
-          <div class="MainData"></div>
+          <div class="MainData">
+            <div class="totalDeaths">Total Deaths : </div>
+            <div class="totalCases">Total Cases :</div>
+            <div class="totalrecovered">Total Recovered :</div>
+          </div>
         </div>
+        <!---------------right side bar------------->
         <div class="statistics bodyRightBox">
           <div class="title">
             <h2>latest COVID-19 updates</h2>
@@ -83,6 +94,7 @@
     <script src="assets/scripts/start.js" type="module"></script>
     <script src="assets/scripts/getData.js" type="module"></script>
     <script src="assets/scripts/globalChart.js" type="module"></script>
+    <script src="assets/scripts/regionChart.js" type="module"></script>
     <script src="assets/scripts/chartfunc.js" type="module"></script>
   </body>
 </html>

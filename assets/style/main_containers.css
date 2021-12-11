@@ -52,7 +52,7 @@ header {
 }
 footer{
     width:100%;
-    height: 7%;
+    height: 4%;
     background-color: blue;
 }
 
@@ -71,4 +71,5 @@ footer{
     width: 19%;
     border-radius:30% ;
     border: 3px blue solid;
+    cursor: pointer;
 }

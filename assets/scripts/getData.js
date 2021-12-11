@@ -24,18 +24,17 @@ export const fillGlobalData = (globalData) => {
   let NewDeaths = [];
   let date = [];
   let NewConfrimed = [];
-  
 
   for (let i = 0; i < chartDays; i++) {
-    NewDeaths.push(globalData[i].new_deaths) ;
+    NewDeaths.push(globalData[i].new_deaths);
     NewConfrimed.push(globalData[i].new_confirmed);
     date.push(globalData[i].date);
   }
   let obj = {
-    NewDeaths:NewDeaths.reverse() ,
-    NewConfrimed:NewConfrimed.reverse() , 
-    date:date.reverse()
-  }
+    NewDeaths: NewDeaths.reverse(),
+    NewConfrimed: NewConfrimed.reverse(),
+    date: date.reverse(),
+  };
 
   currentGlobalData["active"] = globalData[0].active;
   currentGlobalData["deaths"] = globalData[0].deaths;
@@ -48,8 +47,7 @@ export const getGlobalData = async () => {
       "https://intense-mesa-62220.herokuapp.com/https://corona-api.com/timeline";
     const data = await (await fetch(timeLIneURL)).json();
     LastWeeKglobalData = fillGlobalData(data.data);
-    console.log(LastWeeKglobalData)
-    return LastWeeKglobalData ;
+    return LastWeeKglobalData;
   } catch (err) {
     console.log(err);
   }
@@ -90,6 +88,7 @@ export const getCountryCovidData = async (
   continent
 ) => {
   try {
+    if(CountryCode==="XK") return""
     const countryDataURL = `https://intense-mesa-62220.herokuapp.com/https://corona-api.com/countries/${CountryCode}`;
     const response = await fetch(countryDataURL);
     const countryData = await response.json();
@@ -105,7 +104,7 @@ export const getCountryCovidData = async (
       );
     }
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${countryData.status}`);
+      throw new Error(`HTTP error! status: ${countryData.status} ,country :${CountryCode}`);
     }
   } catch (err) {
     console.log(err);
@@ -118,12 +117,13 @@ export const fillcountriesData = (countriesData, continent) => {
     let eachcountry = {};
     eachcountry.name = element.name.common;
     eachcountry.code = element.cca2;
-    eachcountry.confirmed = getCountryCovidData(
-      eachcountry.code,
-      false,
-      continent
-    );
-    countries.push(eachcountry);
+    let tempVar = 0;
+    getCountryCovidData(eachcountry.code, false, continent).then(function (value) {
+      eachcountry.confirmed = value;
+      countries.push(eachcountry);
+    });
+    
+    
   });
   return countries;
 };
@@ -165,5 +165,3 @@ export const searchCountry = async (country) => {
 };
 //----------call the functions --------------
 //TODO : get data for all containent
-
-

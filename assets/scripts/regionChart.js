@@ -1,4 +1,4 @@
-import * as chartData from "./getData.js";
+import * as regionchartData from "./getData.js";
 
 //setup
 const labels = [];
@@ -6,26 +6,18 @@ const data = {
   labels: labels,
   datasets: [
     {
-      label: "daily new deaths",
+      label: "active cases",
       backgroundColor: "rgb(255, 99, 132)",
       borderColor: "rgb(255, 99, 132)",
-      data: [], //getChartData("deaths"),
+      data: [], //getChartData("cases"),
       pointRadius: 5,
       pointHoverRadius: 10,
       pointHoverBackgroundColor: "rgb(255, 99, 132)",
     },
-    {
-      label: "daily new cases",
-      backgroundColor: "blue",
-      borderColor: "blue",
-      data: [],
-      pointRadius:5,
-      pointHoverRadius: 10,
-      pointHoverBackgroundColor: "blue",
-    },
   ],
 };
 //config
+//options.scales.x.title.text
 const config = {
   type: "line",
   data: data,
@@ -83,14 +75,21 @@ const config = {
   },
 };
 //start
-const globalChart = new Chart(document.getElementById("globalChart"), config);
+const regionChart = new Chart(document.getElementById("regionChart"), config);
 
-const addChartData = () => {
-  chartData.getGlobalData().then(function (value) {
-    globalChart.data.datasets[0].data = value.NewDeaths;
-    globalChart.data.datasets[1].data = value.NewConfrimed;
-    globalChart.data.labels = value.date;
-    globalChart.update();
-  });
+export const addChartData = (region, data) => {
+  let namesArr = [];
+  let CasesArr = [];
+  console.log() 
+ data.forEach(element => {
+    namesArr.push(element.name);
+    CasesArr.push(element.confirmed);
+     
+ });
+ regionChart.options.scales.x.title.text= `${region} current active cases`
+  regionChart.data.datasets[0].data = CasesArr;
+  regionChart.data.labels = namesArr;
+  regionChart.update();
+
+  
 };
-addChartData();

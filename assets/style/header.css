@@ -25,7 +25,7 @@
 }
 
 .searchBox:hover > .searchText{
-  width: 240px;
+  width:250px;
   padding: 0 6px;
 }
 
@@ -60,13 +60,15 @@
   outline: none;
   float: left;
   padding: 0;
+  margin: 0;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: normal;
   transition: 0.4s;
-  line-height: 30px;
+  line-height: 15px;
   width: 0px;
+
   
-/*   width: 250px; */
+  
  
 }
