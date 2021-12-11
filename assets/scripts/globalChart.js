@@ -1,6 +1,7 @@
-import * as chartData from "./getData.js"
+import * as chartData from "./getData.js";
+
 //setup
-const labels = ["January", "February", "March", "April", "May", "June"];
+const labels = [];
 const data = {
   labels: labels,
   datasets: [
@@ -8,19 +9,19 @@ const data = {
       label: "daily new deaths",
       backgroundColor: "rgb(255, 99, 132)",
       borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
+      data: [], //getChartData("deaths"),
       pointRadius: 10,
       pointHoverRadius: 15,
-      pointHoverBackgroundColor: 'blue',
-     
-      
+      pointHoverBackgroundColor: "rgb(255, 99, 132)",
     },
     {
       label: "daily new cases",
       backgroundColor: "blue",
       borderColor: "blue",
-      data: [50, 30, 40, 8, 15, 14, 90],
-      
+      data: [],
+      pointRadius: 10,
+      pointHoverRadius: 15,
+      pointHoverBackgroundColor: "blue",
     },
   ],
 };
@@ -30,19 +31,19 @@ const config = {
   data: data,
   options: {
     tooltips: {
-        /*callbacks:{
+      /*callbacks:{
 
         }*/
-      },
+    },
     plugins: {
-        legend: {
-            labels: {
-                // This more specific font property overrides the global property
-                font: {
-                    size: 50
-                }
-            }
-        }
+      legend: {
+        labels: {
+          // This more specific font property overrides the global property
+          font: {
+            size: 50,
+          },
+        },
+      },
     },
     responsive: true,
     scales: {
@@ -62,29 +63,34 @@ const config = {
         },
 
         ticks: {
-            // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-            color: 'red',
-            font: {
-                size:40
-            }
-          }  
-      },
-      y:{
-        ticks: {
-            // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-            color: 'red',
-            font: {
-                size:40
-            },
-            
+          // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          color: "red",
+          font: {
+            size: 40,
           },
-          min: 0,
-          max:50
-         
-          
-      }
+        },
+      },
+      y: {
+        ticks: {
+          // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          color: "red",
+          font: {
+            size: 40,
+          },
+        },
+      },
     },
   },
 };
 //start
 const myChart = new Chart(document.getElementById("myChart"), config);
+
+const addChartData = () => {
+  chartData.getGlobalData().then(function (value) {
+    myChart.data.datasets[0].data = value.NewDeaths;
+    myChart.data.datasets[1].data = value.NewConfrimed;
+    myChart.data.labels = value.date;
+    myChart.update();
+  });
+};
+addChartData();

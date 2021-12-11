@@ -55,10 +55,10 @@ seachOnClick();
 searchHitEnter();
 
 data.getGlobalData().then(function (value) {
-   for (const key in value) {
+   /*for (const key in value) {
     let initialDiv = document.createElement("div");
     initialDiv.classList.add("globaData");
     initialDiv.innerText = `${key} : ${value[key]} K`;
     selectors.globalStatusBox.appendChild(initialDiv);
-   }
+   }*/
 });

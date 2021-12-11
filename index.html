@@ -13,10 +13,14 @@
       type="text/css"
       href="http://yui.yahooapis.com/3.11.0/build/cssnormalize/cssnormalize-min.css"
     />-->
-    <link rel="stylesheet" href="/assets/style/main.css" />
+
+    <link rel="stylesheet" href="/assets/style/main_containers.css" />
     <link rel="stylesheet" href="/assets/style/header.css" />
     <link rel="stylesheet" href="/assets/style/dropdown.css" />
-    <link rel="stylesheet" href="/assets/style/main-body.css" />
+    <link rel="stylesheet" href="/assets/style/main_body.css" />
+    <link rel="stylesheet" href="/assets/style/main_body_Left.css" />
+    <link rel="stylesheet" href="/assets/style/main_body _right.css" />
+    <link rel="stylesheet" href="/assets/style/charts.css" />
     <link rel="stylesheet" href="/assets/style/font.css" />
 
     <title>COVID 19</title>
@@ -45,7 +49,7 @@
         <div class="ContinentsbtnsBox"></div>
 
         <div class="dropdownBox">
-     <ul>
+          <ul>
             <li class="dropdown">
               <a href="#" class="dropbtn"> countries list</a>
               <div class="dropdownContent">
@@ -57,20 +61,23 @@
       </div>
       <!-----main body : charts , statistics -------->
       <div class="mainBody">
-        <div class="globalBox bodyLeftBox">
+        <div class="bodyLeftBox" id="globalBox">
           <!--TODO: ADD covid ICON & EARCH ICON-->
-          <div class="title">
-            <h2>up to date COVID-19 Global data</h2>
+          <div class="chartBox">
+            <canvas
+              id="myChart"
+              style="max-width: 100%; height: 100%; margin: 0 auto"
+            ></canvas>
           </div>
-          <div class="globalStatusBox"></div>
+          <div class="MainData"></div>
         </div>
         <div class="statistics bodyRightBox">
           <div class="title">
             <h2>latest COVID-19 updates</h2>
           </div>
-          <iframe  src="https://www.youtube.com/embed/Kb7nCsn6_mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <iframe  src="https://www.youtube.com/embed/Kb7nCsn6_mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe src="https://www.youtube.com/embed/NMre6IAAAiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          
+          -->
         </div>
       </div>
       <!-----footer -------->
@@ -78,8 +85,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="assets/scripts/selectors.js"></script>
-    <script type="module" src="assets/scripts/main.js"></script>
-    <script type="module" src="assets/scripts/getData.js"></script>
+    <script src="assets/scripts/selectors.js" type="module"></script>
+    <script src="assets/scripts/start.js" type="module"></script>
+    <script src="assets/scripts/getData.js" type="module"></script>
+    <script src="assets/scripts/globalChart.js" type="module"></script>
+    <script src="assets/scripts/chartfunc.js" type="module"></script>
   </body>
 </html>
