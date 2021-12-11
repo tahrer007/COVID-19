@@ -25,12 +25,14 @@ body{
 /*----------------main page containers---------------------------*/
 header {
     width: 100%;
-    height: 7%; 
+    height: 9%; 
     background: #7c3238;
     display: flex;
     justify-content: space-between;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
   }
 .btnsbox{
     width:100%;
