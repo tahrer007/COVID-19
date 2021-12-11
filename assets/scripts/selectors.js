@@ -8,3 +8,4 @@ export const dropdownContent = document.querySelector(".dropdownContent");
 export const ContinentsbtnsBox = document.querySelector(".ContinentsbtnsBox");
 export const searchBtn = document.querySelector(".searchBtn");
 export const searchText = document.querySelector(".searchText");
+export const globalStatusBox = document.querySelector(".globalStatusBox");

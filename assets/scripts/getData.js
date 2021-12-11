@@ -6,7 +6,7 @@ export const worldsContinents = [
   "Oceania",
 ];
 export let ContinentsData = {};
-export let globalData = {};
+ let globalData = {};
 worldsContinents.forEach((element) => {
   ContinentsData[element] = {
     countriesArr: [],
@@ -18,13 +18,22 @@ worldsContinents.forEach((element) => {
 export let sellectedCountry = {};
 
 //-----------get global data from API ----------------
-export const GlobalData = async () => {
+export const fillGlobalData= (globalData)=>{
+  let obj = {};
+  obj.active= globalData.active;
+  obj.deaths= globalData.deaths;
+  obj["new confrimed"]= globalData.new_confirmed;
+  obj["new deaths"]=globalData.new_deaths ;
+  return obj ; 
+
+}
+export const getGlobalData = async () => {
   try {
     const timeLIneURL =
       "https://intense-mesa-62220.herokuapp.com/https://corona-api.com/timeline";
     const data = await (await fetch(timeLIneURL)).json();
-    globalData = data.data[0];
-    console.log(globalData);
+    return fillGlobalData(data.data[0]);
+
   } catch (err) {
     console.log(err);
   }
@@ -141,5 +150,5 @@ export const searchCountry = async (country) => {
 };
 //----------call the functions --------------
 //TODO : get data for all containent
-//GlobalData()
-getCountryCovidData("FR", true, "");
+
+
