@@ -10,8 +10,8 @@ const data = {
       backgroundColor: "rgb(255, 99, 132)",
       borderColor: "rgb(255, 99, 132)",
       data: [], //getChartData("deaths"),
-      pointRadius: 10,
-      pointHoverRadius: 15,
+      pointRadius: 5,
+      pointHoverRadius: 10,
       pointHoverBackgroundColor: "rgb(255, 99, 132)",
     },
     {
@@ -19,8 +19,8 @@ const data = {
       backgroundColor: "blue",
       borderColor: "blue",
       data: [],
-      pointRadius: 10,
-      pointHoverRadius: 15,
+      pointRadius:5,
+      pointHoverRadius: 10,
       pointHoverBackgroundColor: "blue",
     },
   ],
@@ -40,7 +40,7 @@ const config = {
         labels: {
           // This more specific font property overrides the global property
           font: {
-            size: 50,
+            size: 20,
           },
         },
       },
@@ -55,7 +55,7 @@ const config = {
           color: "#911",
           font: {
             family: "Comic Sans MS",
-            size: 50,
+            size: 30,
             weight: "bold",
             lineHeight: 1.2,
           },
@@ -66,7 +66,7 @@ const config = {
           // For a category axis, the val is the index so the lookup via getLabelForValue is needed
           color: "red",
           font: {
-            size: 40,
+            size: 10,
           },
         },
       },
@@ -75,7 +75,7 @@ const config = {
           // For a category axis, the val is the index so the lookup via getLabelForValue is needed
           color: "red",
           font: {
-            size: 40,
+            size: 10,
           },
         },
       },
