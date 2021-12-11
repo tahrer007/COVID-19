@@ -37,7 +37,7 @@ header {
     height: 7%;
     background-color: tomato;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .mainBody{
     width:100%;
@@ -69,5 +69,4 @@ footer{
     font-size: 2.5em;
     border-radius:30% ;
     border: 3px blue solid;
-   
 }

@@ -1,16 +1,6 @@
-
 .dropdownContent::-webkit-scrollbar {
   display: none;
 }
-.dropdownBox {
-  height:100% ; 
-  width: 20%;
-  font-size: 3em;
-  display: flex;
-  justify-content: center;
-  
-}
-
 ul {
   list-style-type: none;
   margin: 0;
