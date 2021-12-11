@@ -8,10 +8,11 @@ ul {
   overflow: hidden;
   background-color: #333;
   height: 100%;
+  text-align: center;
 }
 
 li {
-  float: left;
+  float: center;
 }
 
 li a,
