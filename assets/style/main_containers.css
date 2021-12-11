@@ -44,7 +44,6 @@ header {
 .mainBody{
     width:100%;
     height: 79%;
-    background-color: green;
     display: flex;
     justify-content: space-around;
     align-items: center;

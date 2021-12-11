@@ -18,6 +18,18 @@ const filldropdownContent = (countriesArr) => {
     selectors.dropdownContent.appendChild(initialListItem);
   });
 };
+
+const fillMainData=(region)=>{
+  let confirmed = data.ContinentsData[region].confirmed ;
+  let deaths = data.ContinentsData[region].deaths ;
+  let recovered = data.ContinentsData[region].recovered ;
+  //TODO:MAKE IT DYNAMIC 
+  
+  document.querySelector(".totalDeaths").innerHTML="total Deaths : "+deaths ; 
+  document.querySelector(".totalCases").innerHTML= "total Activen Cases : "+confirmed ; 
+  document.querySelector(".totalrecovered").innerHTML= "total recovery : "+ recovered ; 
+
+}
 const createContinentsButtons = (worldsContinents) => {
   worldsContinents.forEach((element) => {
     let initialBtn = document.createElement("button");
@@ -27,13 +39,16 @@ const createContinentsButtons = (worldsContinents) => {
     
     initialBtn.addEventListener("click", function (e) {
       //TODO:SOLVE THE BUG OF getting data , first click not working 
-    
-      //let counter  = data.ContinentsData[element].confirmed;
-      //console.log(counter);
       e.target.disabled  = true ; 
       data.getCountriesByContinent(element).then(function (value) {
         regionChart.addChartData(element, value[0]);
         filldropdownContent(value[0]);
+        fillMainData(element);
+
+        /*console.log(data.ContinentsData[element].confirmed)
+        console.log(data.ContinentsData[element].deaths)
+        console.log(data.ContinentsData[element].recovered)
+        console.log(data.ContinentsData)*/
         e.target.disabled  = false ;
       });
     
@@ -70,11 +85,3 @@ const searchHitEnter = () => {
 searchOnClick();
 searchHitEnter();
 
-data.getGlobalData().then(function (value) {
-  /*for (const key in value) {
-    let initialDiv = document.createElement("div");
-    initialDiv.classList.add("globaData");
-    initialDiv.innerText = `${key} : ${value[key]} K`;
-    selectors.globalStatusBox.appendChild(initialDiv);
-   }*/
-});

@@ -56,7 +56,7 @@ const config = {
 
         ticks: {
           // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          color: "red",
+          color: "blue",
           font: {
             size: 10,
           },
@@ -65,7 +65,7 @@ const config = {
       y: {
         ticks: {
           // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          color: "red",
+          color: "blue",
           font: {
             size: 10,
           },

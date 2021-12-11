@@ -49,6 +49,7 @@ li.dropdown {
   text-decoration: none;
   display: block;
   text-align: left;
+  cursor: pointer;
 }
 
 .dropdownContent a:hover {

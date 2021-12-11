@@ -2,7 +2,6 @@
    box-sizing:  border-box;
   height: 98%;
   width: 78%;
-  background-color: maroon;
   border: 3px black solid;
   display: flex;
   flex-direction: column ;
