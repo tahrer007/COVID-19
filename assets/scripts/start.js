@@ -85,7 +85,7 @@ const searchOnClick = () => {
   selectors.searchBtn.addEventListener("click", function () {
     console.log(selectors.searchText.value);
     data.searchCountry(selectors.searchText.value).then(function (value) {
-      console.log(value);
+      fillCountryStatistcs(value);
     });
   });
 };
