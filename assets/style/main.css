@@ -46,6 +46,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
 }
 footer{
     width:100%;

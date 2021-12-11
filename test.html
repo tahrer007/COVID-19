@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="/assets/style/main.css" />
+    <link rel="stylesheet" href="/assets/style/header.css" />
+    <link rel="stylesheet" href="/assets/style/dropdown.css" />
+    <link rel="stylesheet" href="/assets/style/main_body.css" />
+    <link rel="stylesheet" href="/assets/style/main_body_Left.css" />
+    <link rel="stylesheet" href="/assets/style/main_body _right.css" />
+    <link rel="stylesheet" href="/assets/style/charts.css" />
+    <link rel="stylesheet" href="/assets/style/font.css" />
+  </head>
+  <body>
+    <div class="mainBody">
+      <div class="bodyLeftBox" id="globalBox">
+        <!--TODO: ADD covid ICON & EARCH ICON-->
+          <div class="chartBox">
+            <canvas id="myChart" style='max-width:100%; height: 100%; margin:0 auto;'></canvas>
+          </div>
+          <div class="MainData"></div>
+        
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="assets/scripts/selectors.js"></script>
+    <script type="module" src="assets/scripts/main.js"></script>
+    <script type="module" src="assets/scripts/getData.js"></script>
+    <script type="module" src="assets/scripts/globalChart.js"></script>
+  </body>
 </html>
