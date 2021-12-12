@@ -1,4 +1,6 @@
 import * as chartData from "./getData.js";
+import * as start from "./start.js";
+import * as elementSelctors from "./selectors.js";
 
 //setup
 const labels = [];
@@ -91,6 +93,16 @@ const addChartData = () => {
     globalChart.data.datasets[1].data = value.NewConfrimed;
     globalChart.data.labels = value.date;
     globalChart.update();
+   
+    document.querySelector(".totalDeaths").innerHTML = "total Deaths : " + chartData.currentGlobalData.deaths;
+   document.querySelector(".totalCases").innerHTML =
+    "total Activen Cases : " +chartData.currentGlobalData["active"];
+   
+   //currentGlobalData["active"] = globalData[0].active;
+    //currentGlobalData["deaths"] = globalData[0].deaths;
+  
   });
+  console.log(chartData.currentGlobalData)
+
 };
 addChartData();
