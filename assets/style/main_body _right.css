@@ -4,9 +4,16 @@
 
 .statistics {
 }
+
+.titleBox{
+    background-color: silver;
+}
 .title{
     width: 100%;
     height: 10%;
+    box-sizing: border-box;
+    color: #911;
+ 
 
 }
 .countryDataBox{
@@ -16,12 +23,19 @@
     align-items: center;
     width: 100%;
     height: 85%;
+    box-sizing: border-box;
+
+ 
 }
 .countryDataItem{
     font-size: 1em;
     width: 100%;
     height: 10%;
-    background-color: chartreuse;
+    background-color: silver;
     text-align: center;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+ 
 }

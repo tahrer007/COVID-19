@@ -2,9 +2,12 @@
 .logo {
   height: 100%;
   width: 5%;
-  background-color:blue ;
-  
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /*TODO:FIX search bar size bug*/
 .searchBoxContainer{
   height: 100%;
@@ -36,7 +39,7 @@
 }
 
 .searchBtn {
-  color: #e84118;
+  
   float: right;
   width: 30px;
   height: 30px;
@@ -62,7 +65,7 @@
   padding: 0;
   margin: 0;
   color: white;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: normal;
   transition: 0.4s;
   line-height: 15px;

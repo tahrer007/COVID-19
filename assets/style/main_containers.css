@@ -4,6 +4,9 @@ body{
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    background: #ec008c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ec008c, #fc6767); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ec008c, #fc6767); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
    
 }
@@ -26,7 +29,7 @@ body{
 header {
     width: 100%;
     height: 9%; 
-    background: #7c3238;
+    background: black;
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -37,38 +40,51 @@ header {
 .btnsbox{
     width:100%;
     height: 7%;
-    background-color: tomato;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
+    align-items: center;
+    
+  
+
 }
 .mainBody{
     width:100%;
-    height: 79%;
+    height: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
+     
+  
+
 }
 footer{
     width:100%;
     height: 4%;
-    background-color: blue;
+   
 }
 
 
 /**------------- button box ----------------------*/
 .ContinentsbtnsBox{
     height: 100%;
-    width:60%; 
+    width:50%; 
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
-    background-color: yellowgreen;
+    
+   
+   
 }
 
 .Continentbtn{
     height:100% ; 
     width: 19%;
-    border-radius:30% ;
-    border: 3px blue solid;
     cursor: pointer;
+    background-color: #333;
+    color: white;
+}
+
+.Continentbtn:hover{
+    background-color: red;
 }

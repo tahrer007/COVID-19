@@ -11,12 +11,13 @@
 .bodyRightBox {
   height: 98%;
   width: 19%;
-  background-color: mediumaquamarine;
   border: 3px black solid;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   text-align: center;
+  box-sizing: border-box;
+
+ 
 }
 
 
