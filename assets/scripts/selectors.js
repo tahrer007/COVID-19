@@ -12,3 +12,5 @@ export const globalStatusBox = document.querySelector(".globalStatusBox");
 export const title = document.querySelector(".title");
 export const countryDataBox = document.querySelector(".countryDataBox");
 export const countryDataItem = document.querySelector(".countryDataItem");
+export const globalChart = document.querySelector("#globalChart");
+export const regionChart = document.querySelector("#regionChart");

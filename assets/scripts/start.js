@@ -56,18 +56,15 @@ const createContinentsButtons = (worldsContinents) => {
       //TODO:SOLVE THE BUG OF getting data , first click not working
       e.target.disabled = true;
       data.getCountriesByContinent(element).then(function (value) {
+        selectors.globalChart.style.visibility="hidden";
+        selectors.regionChart.style.visibility="visible";
         regionChart.addChartData(element, value[0]);
         filldropdownContent(value[0]);
         fillMainData(element);
-
-        /*console.log(data.ContinentsData[element].confirmed)
-        console.log(data.ContinentsData[element].deaths)
-        console.log(data.ContinentsData[element].recovered)
-        console.log(data.ContinentsData)*/
         e.target.disabled = false;
       });
 
-      if (true) {
+      /*if (true) {
       } else {
         console.log(data.ContinentsData[element].countriesArr);
         regionChart.addChartData(
@@ -75,7 +72,7 @@ const createContinentsButtons = (worldsContinents) => {
           data.ContinentsData[element].countriesArr
         );
         filldropdownContent(value[0]);
-      }
+      }*/
     });
     selectors.ContinentsbtnsBox.appendChild(initialBtn);
   });
