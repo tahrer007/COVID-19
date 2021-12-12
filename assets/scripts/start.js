@@ -3,6 +3,7 @@ import * as selectors from "./selectors.js";
 import * as data from "./getData.js";
 import * as regionChart from "./regionChart.js";
 const fillCountryStatistcs = (countryData)=>{
+  selectors.countryDataBox.innerHTML=""
   console.log("tttttt")
   console.log(countryData)
   for (const key in countryData) {
