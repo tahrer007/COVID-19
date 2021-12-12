@@ -162,6 +162,7 @@ export const searchCountry = async (country) => {
     }
   } catch (err) {
     console.error("not found");
+    window.alert("  country not found !!")
   }
 };
 //----------call the functions --------------
