@@ -76,10 +76,16 @@ export const fillCountryCovidData = (countryData) => {
 //---------------------- calculate content sum (death/comfirmed case / recovered)
 
 export const calculateContinentCovidData = (countryCovidData, continent) => {
+ 
+  let obj = {
+    confirmed: countryCovidData.confirmed,
+    deaths: countryCovidData.deaths,
+    recovered: countryCovidData.recovered,
+  };
   ContinentsData[continent].confirmed += countryCovidData.confirmed;
   ContinentsData[continent].deaths += countryCovidData.deaths;
   ContinentsData[continent].recovered += countryCovidData.recovered;
-  return countryCovidData.confirmed;
+  return obj;
 };
 //------------------------- getCountryCovidData -------------------
 export const getCountryCovidData = async (
@@ -92,7 +98,7 @@ export const getCountryCovidData = async (
     const countryDataURL = `https://intense-mesa-62220.herokuapp.com/https://corona-api.com/countries/${CountryCode}`;
     const response = await fetch(countryDataURL);
     const countryData = await response.json();
-    //console.log(countryData.data.latest_data);
+   
 
     if (isCountrySellected) {
       sellectedCountry = fillCountryCovidData(countryData);
@@ -123,7 +129,9 @@ export const fillcountriesData = (countriesData, continent) => {
     getCountryCovidData(eachcountry.code, false, continent).then(function (
       value
     ) {
-      eachcountry.confirmed = value;
+
+      /*******/
+      eachcountry.data = value;
       countries.push(eachcountry);
     });
   });
@@ -144,6 +152,7 @@ export const getCountriesByContinent = async (continent) => {
   } catch (err) {
     console.log(err);
   }
+  
 };
 //------------------ search Country manually -----------------------
 

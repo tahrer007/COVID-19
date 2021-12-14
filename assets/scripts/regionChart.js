@@ -13,6 +13,7 @@ const data = {
       pointRadius: 5,
       pointHoverRadius: 10,
       pointHoverBackgroundColor: "rgb(255, 99, 132)",
+      
     },
   ],
 };
@@ -83,7 +84,9 @@ export const addChartData = (region, data) => {
   console.log() 
  data.forEach(element => {
     namesArr.push(element.name);
-    CasesArr.push(element.confirmed);
+    CasesArr.push(element.data.confirmed);
+    CasesArr.push(element.data.deaths);
+    CasesArr.push(element.data.recovered);
      
  });
  regionChart.options.scales.x.title.text= `${region} current active cases`

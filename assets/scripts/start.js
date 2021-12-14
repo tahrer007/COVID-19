@@ -44,6 +44,8 @@ const fillMainData = (region) => {
   document.querySelector(".totalrecovered").innerHTML =
     "total recovery : " + recovered;
 };
+
+
 const createContinentsButtons = (worldsContinents) => {
   worldsContinents.forEach((element) => {
     let initialBtn = document.createElement("button");
@@ -57,7 +59,10 @@ const createContinentsButtons = (worldsContinents) => {
       data.getCountriesByContinent(element).then(function (value) {
         selectors.globalChart.style.visibility = "hidden";
         selectors.regionChart.style.visibility = "visible";
-        console.log(data.ContinentsData[element].countriesArr[0].length)
+        //console.log(data.ContinentsData[element].countriesArr[0])
+        //console.log(data.ContinentsData[element].countriesArr[0].length)
+        console.log(Object.keys(value[0]).length)
+        console.log(value[0])
         regionChart.addChartData(element, value[0]);
         filldropdownContent(value[0]);
         fillMainData(element);
