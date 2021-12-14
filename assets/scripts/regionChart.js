@@ -6,21 +6,35 @@ const data = {
   labels: labels,
   datasets: [
     {
-      label: "active cases",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
+      label: "deaths",
       data: [], //getChartData("cases"),
-      pointRadius: 5,
-      pointHoverRadius: 10,
-      pointHoverBackgroundColor: "rgb(255, 99, 132)",
-      
+      backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+      borderColor: ["rgb(255, 99, 132)"],
+      borderWidth: 2,
+    },
+
+    {
+      label: "active cases",
+      data: [], //getChartData("cases"),
+     
+      backgroundColor: ["rgba(255, 205, 86, 0.2)"],
+      borderColor: ["rgb(255, 205, 86)"],
+      borderWidth: 2,
+    },
+
+    {
+      label: "recoved",
+      data: [], //getChartData("cases"),
+      backgroundColor: ["rgba(75, 192, 192, 0.2)"],
+      borderColor: ["rgb(75, 192, 192)"],
+      borderWidth: 2,
     },
   ],
 };
 //config
 //options.scales.x.title.text
 const config = {
-  type: "line",
+  type: "bar",
   data: data,
   options: {
     tooltips: {
@@ -81,18 +95,23 @@ const regionChart = new Chart(document.getElementById("regionChart"), config);
 export const addChartData = (region, data) => {
   let namesArr = [];
   let CasesArr = [];
-  console.log() 
- data.forEach(element => {
+  let deathsArr = [];
+  let recoveryArr = [];
+  console.log();
+  data.forEach((element) => {
     namesArr.push(element.name);
+    deathsArr.push(element.data.deaths);
     CasesArr.push(element.data.confirmed);
-    CasesArr.push(element.data.deaths);
-    CasesArr.push(element.data.recovered);
-     
- });
- regionChart.options.scales.x.title.text= `${region} current active cases`
-  regionChart.data.datasets[0].data = CasesArr;
+    recoveryArr.push(element.data.recovered);
+  });
+  regionChart.options.scales.x.title.text = `${region} current active cases`;
+  regionChart.data.datasets[0].data = deathsArr;
+  regionChart.data.datasets[1].data = CasesArr;
+  regionChart.data.datasets[2].data = recoveryArr;
   regionChart.data.labels = namesArr;
-  regionChart.update();
 
-  
+  console.log(recoveryArr)
+  console.log(CasesArr)
+  console.log(deathsArr)
+  regionChart.update();
 };
