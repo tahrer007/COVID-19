@@ -98,11 +98,10 @@ const addChartData = () => {
    document.querySelector(".totalCases").innerHTML =
     "total Activen Cases : " +chartData.currentGlobalData["active"];
    
-   //currentGlobalData["active"] = globalData[0].active;
-    //currentGlobalData["deaths"] = globalData[0].deaths;
+   
   
   });
-  console.log(chartData.currentGlobalData)
+ 
 
 };
 addChartData();

@@ -97,7 +97,6 @@ export const addChartData = (region, data) => {
   let CasesArr = [];
   let deathsArr = [];
   let recoveryArr = [];
-  console.log();
   data.forEach((element) => {
     namesArr.push(element.name);
     deathsArr.push(element.data.deaths);
@@ -110,8 +109,5 @@ export const addChartData = (region, data) => {
   regionChart.data.datasets[2].data = recoveryArr;
   regionChart.data.labels = namesArr;
 
-  console.log(recoveryArr)
-  console.log(CasesArr)
-  console.log(deathsArr)
   regionChart.update();
 };

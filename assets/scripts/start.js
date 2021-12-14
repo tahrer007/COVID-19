@@ -4,8 +4,6 @@ import * as data from "./getData.js";
 import * as regionChart from "./regionChart.js";
 const fillCountryStatistcs = (countryData) => {
   selectors.countryDataBox.innerHTML = "";
-  console.log("tttttt");
-  console.log(countryData);
   for (const key in countryData) {
     if (key === "name" || key === "code") continue;
     let initialListItem = document.createElement("div");
@@ -45,7 +43,6 @@ const fillMainData = (region) => {
     "total recovery : " + recovered;
 };
 
-
 const createContinentsButtons = (worldsContinents) => {
   worldsContinents.forEach((element) => {
     let initialBtn = document.createElement("button");
@@ -59,10 +56,7 @@ const createContinentsButtons = (worldsContinents) => {
       data.getCountriesByContinent(element).then(function (value) {
         selectors.globalChart.style.visibility = "hidden";
         selectors.regionChart.style.visibility = "visible";
-        //console.log(data.ContinentsData[element].countriesArr[0])
-        //console.log(data.ContinentsData[element].countriesArr[0].length)
-        console.log(Object.keys(value[0]).length)
-        console.log(value[0])
+        console.log(value)
         regionChart.addChartData(element, value[0]);
         filldropdownContent(value[0]);
         fillMainData(element);
@@ -76,7 +70,6 @@ createContinentsButtons(data.worldsContinents);
 
 const searchOnClick = () => {
   selectors.searchBtn.addEventListener("click", function () {
-    console.log(selectors.searchText.value);
     data.searchCountry(selectors.searchText.value).then(function (value) {
       fillCountryStatistcs(value);
     });
