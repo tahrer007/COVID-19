@@ -39,7 +39,6 @@ export const fillGlobalData = (globalData) => {
   currentGlobalData["active"] = globalData[0].active;
   currentGlobalData["deaths"] = globalData[0].deaths;
 
-
   return obj;
 };
 export const getGlobalData = async () => {
@@ -65,12 +64,12 @@ export const fillCountryCovidData = (countryData) => {
   CountryObj.deaths = countryData.data.latest_data.deaths;
   CountryObj.recovered = countryData.data.latest_data.recovered;
   //get callculated data
-  CountryObj["death Rate"] = countryData.data.latest_data.calculated.death_rate.toFixed();
+  CountryObj["death Rate"] =
+    countryData.data.latest_data.calculated.death_rate.toFixed();
   CountryObj["recovery Rate"] =
     countryData.data.latest_data.calculated.recovery_rate.toFixed(2);
-    CountryObj["cases/Million"] =
+  CountryObj["cases/Million"] =
     countryData.data.latest_data.calculated.cases_per_million_population;
-  
 
   return CountryObj;
 };
@@ -89,7 +88,7 @@ export const getCountryCovidData = async (
   continent
 ) => {
   try {
-    if(CountryCode==="XK") return""
+    if (CountryCode === "XK") return "";
     const countryDataURL = `https://intense-mesa-62220.herokuapp.com/https://corona-api.com/countries/${CountryCode}`;
     const response = await fetch(countryDataURL);
     const countryData = await response.json();
@@ -105,7 +104,9 @@ export const getCountryCovidData = async (
       );
     }
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${countryData.status} ,country :${CountryCode}`);
+      throw new Error(
+        `HTTP error! status: ${countryData.status} ,country :${CountryCode}`
+      );
     }
   } catch (err) {
     console.log(err);
@@ -119,12 +120,12 @@ export const fillcountriesData = (countriesData, continent) => {
     eachcountry.name = element.name.common;
     eachcountry.code = element.cca2;
     let tempVar = 0;
-    getCountryCovidData(eachcountry.code, false, continent).then(function (value) {
+    getCountryCovidData(eachcountry.code, false, continent).then(function (
+      value
+    ) {
       eachcountry.confirmed = value;
       countries.push(eachcountry);
     });
-    
-    
   });
   return countries;
 };
@@ -162,7 +163,7 @@ export const searchCountry = async (country) => {
     }
   } catch (err) {
     console.error("not found");
-    window.alert("  country not found !!")
+    window.alert("  country not found !!");
   }
 };
 //----------call the functions --------------
