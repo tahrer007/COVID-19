@@ -2,20 +2,19 @@
 import * as selectors from "./selectors.js";
 import * as data from "./getData.js";
 import * as regionChart from "./regionChart.js";
-const fillCountryStatistcs = (countryData)=>{
-  selectors.countryDataBox.innerHTML=""
-  console.log("tttttt")
-  console.log(countryData)
+const fillCountryStatistcs = (countryData) => {
+  selectors.countryDataBox.innerHTML = "";
+  console.log("tttttt");
+  console.log(countryData);
   for (const key in countryData) {
-    if(key==="name"||key==="code")continue ; 
+    if (key === "name" || key === "code") continue;
     let initialListItem = document.createElement("div");
     initialListItem.classList.add("countryDataItem");
     initialListItem.innerHTML = `${key} : ${countryData[key]}`;
     selectors.countryDataBox.appendChild(initialListItem);
   }
-  selectors.title.innerHTML = countryData.name  ; 
-  
-}
+  selectors.title.innerHTML = countryData.name;
+};
 const filldropdownContent = (countriesArr) => {
   selectors.dropdownContent.innerHTML = "";
   countriesArr.forEach((element) => {
@@ -56,23 +55,14 @@ const createContinentsButtons = (worldsContinents) => {
       //TODO:SOLVE THE BUG OF getting data , first click not working
       e.target.disabled = true;
       data.getCountriesByContinent(element).then(function (value) {
-        selectors.globalChart.style.visibility="hidden";
-        selectors.regionChart.style.visibility="visible";
+        selectors.globalChart.style.visibility = "hidden";
+        selectors.regionChart.style.visibility = "visible";
+        console.log(data.ContinentsData[element].countriesArr[0].length)
         regionChart.addChartData(element, value[0]);
         filldropdownContent(value[0]);
         fillMainData(element);
         e.target.disabled = false;
       });
-
-      /*if (true) {
-      } else {
-        console.log(data.ContinentsData[element].countriesArr);
-        regionChart.addChartData(
-          element,
-          data.ContinentsData[element].countriesArr
-        );
-        filldropdownContent(value[0]);
-      }*/
     });
     selectors.ContinentsbtnsBox.appendChild(initialBtn);
   });

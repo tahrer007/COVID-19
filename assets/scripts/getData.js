@@ -38,7 +38,7 @@ export const fillGlobalData = (globalData) => {
 
   currentGlobalData["active"] = globalData[0].active;
   currentGlobalData["deaths"] = globalData[0].deaths;
-  console.log(currentGlobalData)
+
 
   return obj;
 };
@@ -167,4 +167,3 @@ export const searchCountry = async (country) => {
 };
 //----------call the functions --------------
 //TODO : get data for all containent
-console.log(currentGlobalData)
